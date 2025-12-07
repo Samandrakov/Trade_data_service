@@ -14,12 +14,12 @@ def create_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python trade_data.py -d 2024-12-01
-  python trade_data.py -c 36                 (Australia)
-  python trade_data.py -c "Turkey"           (fuzzy search)
-  python trade_data.py -p "animals live"     (fuzzy search)
-  python trade_data.py -d 2024-12-01 -c 36 -csv
-  python trade_data.py -d 2024-12-01 -c 36 -p 101
+  python data_extractor.py -d 2024-12-01
+  python data_extractor.py -c 36                 (Australia)
+  python data_extractor.py -c "Turkey"           (fuzzy search)
+  python data_extractor.py -p "animals live"     (fuzzy search)
+  python data_extractor.py -d 2024-12-01 -c 36 -csv
+  python data_extractor.py -d 2024-12-01 -c 36 -p 101
 """
     )
 

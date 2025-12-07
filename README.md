@@ -1,33 +1,16 @@
 # Trade Data Extractor
 
-CLI для извлечения данных из базы данных UNCOMTRADE.
+Инструмент для извлечения данных из базы данных UNCOMTRADE по поисковому запросу.
+
 Особенности базы данных:
 
-1) В базе присутствуют только высокотехнологические продукты с кодами 84, 85, 90 (Товары представлены до 4 знаков)
-2) Есть возможность искать стран заявителей, но не стран с котороыми велась торговля (По умолчанию стоит Российская Федерация)
-3) В качестве первой итерации проекта для данных доступен только 2024 год
+1) База данных UNCOMTRADE за 2024 год;
+2) В базе присутствуют только высокотехнологические продукты с кодами 84, 85, 90 (Товары представлены до 4 знаков);
+2) Есть возможность искать стран заявителей, но не стран с котороыми велась торговля (По умолчанию стоит Российская Федерация)/
 
-## Установка
+# Data Extractor
 
-1. Клонируйте репозиторий
-2. Установите зависимости:
-```bash
-pip install -r requirements.txt
-
-
-Приложение для извлечения торговых данных из базы данных SQLite.
-
-## Установка
-
-1. Клонируйте репозиторий
-2. Установите зависимости:
-```bash
-pip install -r requirements.txt
-
-
-# Trade Data Extractor CLI
-
-Командный инструмент для извлечения и анализа торговых данных из SQLite базы данных.
+Командный инструмент для извлечения и анализа торговых данных из базы данных.
 
 ## Функциональность
 
@@ -36,67 +19,49 @@ pip install -r requirements.txt
 - Экспорт данных в CSV формат
 - Просмотр доступных стран и товарных категорий
 
-## Установка
-
-### Требования
-
-```bash
-pip install pandas
-```
-
-### Настройка
-
-1. Поместите файл базы данных `high_tech_2024.db` в ту же директорию
-2. При необходимости отредактируйте словари кодов в скрипте
-
 ## Использование
 
 ### Базовые команды
 
 ```bash
 # Извлечь данные по дате
-python trade_extractor.py --date 2024-12-01
+python data_extractor.py --date 2024-12-01
 
 # Извлечь данные по стране (по коду)
-python trade_extractor.py --country 792
+python data_extractor.py --country 792
 
 # Извлечь данные по стране (по названию)
-python trade_extractor.py --country "Turkey"
+python data_extractor.py --country "Turkey"
 
 # Извлечь данные по дате и стране с экспортом в CSV
-python trade_extractor.py --date 2024-12-01 --country 792 --to_csv
+python data_extractor.py --date 2024-12-01 --country 792 --to_csv
 
 # Извлечь данные с ограничением вывода
-python trade_extractor.py --country 792 --limit 50
+python data_extractor.py --country 792 --limit 10
 ```
 
 ### Дополнительные команды
 
 ```bash
 # Показать список доступных стран
-python trade_extractor.py --list-countries
+python data_extractor.py --list-countries
 
 # Показать список доступных товарных категорий
-python trade_extractor.py --list-products
-
-# Указать свой файл базы данных
-python trade_extractor.py --database custom.db --date 2024-12-01
+python data_extractor.py --list-products
 
 # Указать имя выходного CSV файла
-python trade_extractor.py --country 792 --to_csv --output turkey_data.csv
+python data_extractor.py --country 792 --to_csv --output turkey_data.csv
 ```
 
 ### Примеры
 
 ```bash
-# Извлечь данные по Турции за декабрь 2024
-python trade_extractor.py --date 2024-12-01 --country 792 --to_csv
+# Извлечь данные по торговли Турции высокотехнологичесвими товарами с Россией за декабрь 2024
+python data_extractor.py --date 2024-12-01 --country 792 --to_csv
 
-# Просмотреть данные по Казахстану (первые 30 записей)
-python trade_extractor.py --country 398 --limit 30
+# Просмотреть данные по торговле Казахстана с Россией (первые 30 записей)
+python data_extractor.py --country 398 --limit 30
 
-# Экспортировать все данные по Украине
-python trade_extractor.py --country "Ukraine" --to_csv --output ukraine_export.csv
 ```
 
 ## Параметры командной строки
@@ -107,10 +72,10 @@ python trade_extractor.py --country "Ukraine" --to_csv --output ukraine_export.c
 | `-c, --country` | Фильтр по стране (код или название) | `--country 792` |
 | `-csv, --to_csv` | Экспорт в CSV файл | `--to_csv` |
 | `-o, --output` | Имя выходного файла CSV | `--output data.csv` |
-| `-db, --database` | Путь к файлу базы данных | `--database custom.db` |
 | `-l, --limit` | Лимит отображаемых записей | `--limit 50` |
 | `--list-countries` | Показать доступные страны | `--list-countries` |
 | `--list-products` | Показать товарные категории | `--list-products` |
+| `-db, --database` | Путь к файлу базы данных | `--database custom.db` |
 
 ## Выходные данные
 
