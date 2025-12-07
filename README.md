@@ -33,6 +33,12 @@ python data_extractor.py --country 792
 # Извлечь данные по стране (по названию)
 python data_extractor.py --country "Turkey"
 
+# Извлечь данные по продукту (по коду) и по стране
+python data_extractor.py --product 8401 --country Turkey
+
+# Извлечь данные по продукту (по названию) и по стране
+python data_extractor.py --product Turbines --country Kazakhstan
+
 # Извлечь данные по дате и стране с экспортом в CSV
 python data_extractor.py --date 2024-12-01 --country 792 --to_csv
 
@@ -66,16 +72,17 @@ python data_extractor.py --country 398 --limit 30
 
 ## Параметры командной строки
 
-| Параметр | Описание | Пример |
-|----------|----------|---------|
-| `-d, --date` | Фильтр по дате (YYYY-MM-DD) | `--date 2024-12-01` |
-| `-c, --country` | Фильтр по стране (код или название) | `--country 792` |
-| `-csv, --to_csv` | Экспорт в CSV файл | `--to_csv` |
-| `-o, --output` | Имя выходного файла CSV | `--output data.csv` |
-| `-l, --limit` | Лимит отображаемых записей | `--limit 50` |
-| `--list-countries` | Показать доступные страны | `--list-countries` |
-| `--list-products` | Показать товарные категории | `--list-products` |
-| `-db, --database` | Путь к файлу базы данных | `--database custom.db` |
+| Параметр           | Описание                               | Пример                                         |
+|--------------------|----------------------------------------|------------------------------------------------|
+| `-d, --date`       | Фильтр по дате (YYYY-MM-DD)            | `--date 2024-12-01`                            |
+| `-p, --product`    | Фильтр по товару (HS код или название) | `--product 8401`,`--product Nuclear reactores` |
+| `-c, --country`    | Фильтр по стране (код или название)    | `--country 792`, `--country Turkey`            |
+| `-csv, --to_csv`   | Экспорт в CSV файл                     | `--to_csv`                                     |
+| `-o, --output`     | Имя выходного файла CSV                | `--output data.csv`                            |
+| `-l, --limit`      | Лимит отображаемых записей             | `--limit 50`                                   |
+| `--list-countries` | Показать доступные страны              | `--list-countries`                             |
+| `--list-products`  | Показать товарные категории            | `--list-products`                              |
+| `-db, --database`  | Путь к файлу базы данных               | `--database custom.db`                         |
 
 ## Выходные данные
 
